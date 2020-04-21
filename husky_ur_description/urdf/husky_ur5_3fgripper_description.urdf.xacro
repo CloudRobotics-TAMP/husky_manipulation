@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+
+  <xacro:include filename="$(find robotiq_3f_gripper_visualization)/cfg/robotiq_hand_macro.urdf.xacro" />
+
+
+  <joint name="arm_mount_joint" type="fixed">
+    <parent link="top_plate_front_link" />
+    <child link="ur_arm_base_link" />
+    <origin xyz="$(optenv HUSKY_UR_XYZ -0.4 0.0 0.0)" rpy="$(optenv HUSKY_UR_RPY 0 0 0)"/>
+  </joint>
+
+  <xacro:ur5_robot prefix="ur_arm_" joint_limited="true"/>
+
+  <xacro:robotiq_hand prefix="l_" parent="ur_arm_tool0" reflect="" >
+     <origin xyz="0 0 0.05" rpy="${pi/2} 0 0" />
+  </xacro:robotiq_hand>
+
+
+  <gazebo>
+    <plugin name="gazebo_robotiq" filename="libRobotiqHandPlugin.so">
+      <side>left</side>
+      <kp_position>3.0</kp_position>
+      <kd_position>0.01</kd_position>
+      <namespace>/robotiq_hands/</namespace>
+    </plugin>
+  </gazebo>
+
+
+</robot>

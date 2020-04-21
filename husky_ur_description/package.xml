@@ -12,4 +12,6 @@
   <exec_depend>ur_description</exec_depend>
   <exec_depend>ur_e_description</exec_depend>
   <exec_depend>husky_description</exec_depend>
+  <exec_depend>robotiq_3f_gripper_visualization</exec_depend>
+
 </package>

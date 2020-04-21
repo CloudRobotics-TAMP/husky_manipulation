@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: husky_description
+    relative_path: urdf/husky.urdf.xacro
+    xacro_args: --inorder urdf_extras:=/home/elisa/catkin_ws/ros/src/internal/case_study_2/husky_manipulation/husky_ur_description/urdf/husky_ur5_3fgripper_description.urdf.xacro laser_enabled:=true kinect_enabled:=true
+  SRDF:
+    relative_path: config/husky.srdf
+  CONFIG:
+    author_name: Elisa Tosello
+    author_email: elisa.tosello@unipd.it
+    generated_timestamp: 1587050527
